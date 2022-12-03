@@ -15,5 +15,5 @@ def calories ():
     sums.sort(reverse=True)
     best = sums[0]
     best3 = sums[0] + sums[1] + sums[2]
-    print(f"The best elf (but we don't like elfs) is carrying: {best}\nThe sum of the best 3 (we like them even less) are: {best3}")
+    print(f"The best elf (but we don't like elves) is carrying: {best}\nThe sum of the best 3 (we like them even less) are: {best3}")
 calories()
