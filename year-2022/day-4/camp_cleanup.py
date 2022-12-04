@@ -21,7 +21,7 @@ with open("ids.txt") as id_list:
         if all(number in ids1 for number in ids2) or all(number in ids2 for number in ids1):
             complete_overlapped += 1
         
-        if any(number in ids1 for number in ids2) or all(number in ids2 for number in ids1):
+        if any(number in ids1 for number in ids2) or any(number in ids2 for number in ids1):
             partially_overlapped += 1
         
     print(complete_overlapped, partially_overlapped)    
