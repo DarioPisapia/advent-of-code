@@ -15,7 +15,6 @@ def mannaggiaglielfi(num):
                 char_4.pop(0)
                 compare_set = set(char_4)    
                 if len(char_4) == len(compare_set):
-                    print(char_4, compare_set)
                     return char_count
                
 print(f"The first packet starts at {mannaggiaglielfi(4)}, the first message starts at {mannaggiaglielfi(14)} ")
