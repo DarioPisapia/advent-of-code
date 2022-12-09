@@ -37,14 +37,10 @@ with open('./year-2022/day-9/steps.txt') as steps_file:
                 #both different
                 if rope[n][1] != rope[n+1][1] and rope[n][0] != rope[n+1][0]:
                     if abs(rope[n][0] - rope[n+1][0]) > 1  or abs(rope[n][1] - rope[n+1][1]) > 1:
-                        if rope[n][0] > rope[n+1][0]:
-                            rope[n+1][0] +=1
-                        if rope[n][0] < rope[n+1][0]:
-                            rope[n+1][0] -=1
-                        if rope[n][1] > rope[n+1][1]:
-                            rope[n+1][1] +=1
-                        if rope[n][1] < rope[n+1][1]:
-                            rope[n+1][1] -=1
+                        #x movement
+                        rope[n+1][0] = rope[n+1][0]+1 if rope[n][0] > rope[n+1][0] else rope[n+1][0]-1
+                        #y movement
+                        rope[n+1][1] = rope[n+1][1] + 1 if rope[n][1] > rope[n+1][1] else rope[n+1][1]-1
                   
             nex = str(rope[9][0])
             ney = str(rope[9][1])
