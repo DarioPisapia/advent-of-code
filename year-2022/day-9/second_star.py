@@ -2,7 +2,6 @@ with open('./year-2022/day-9/steps.txt') as steps_file:
     steps_line = steps_file.readlines()
 
     positions = []
-    npl = []
     rope = [[0,0], [0,0], [0,0], [0,0], [0,0], [0,0], [0,0], [0,0], [0,0], [0,0]]
     for line in steps_line:
         
@@ -34,10 +33,10 @@ with open('./year-2022/day-9/steps.txt') as steps_file:
                         rope[n+1][1] +=1
                     if rope[n][1] - rope[n+1][1] < -1:
                         rope[n+1][1] -=1
+                
                 #both different
                 if rope[n][1] != rope[n+1][1] and rope[n][0] != rope[n+1][0]:
-                    #both far away
-                    if abs(rope[n][0] - rope[n+1][0]) > 1  and abs(rope[n][1] - rope[n+1][1]) > 1:
+                    if abs(rope[n][0] - rope[n+1][0]) > 1  or abs(rope[n][1] - rope[n+1][1]) > 1:
                         if rope[n][0] > rope[n+1][0]:
                             rope[n+1][0] +=1
                         if rope[n][0] < rope[n+1][0]:
@@ -46,24 +45,11 @@ with open('./year-2022/day-9/steps.txt') as steps_file:
                             rope[n+1][1] +=1
                         if rope[n][1] < rope[n+1][1]:
                             rope[n+1][1] -=1
-                    #only one far away
-                    if rope[n][0] - rope[n+1][0] > 1:
-                        rope[n+1][0] +=1
-                        rope[n+1][1] = rope[n][1]
-                    if rope[n][0] - rope[n+1][0] < -1:
-                        rope[n+1][0] -=1
-                        rope[n+1][1] = rope[n][1]
-                    if rope[n][1] - rope[n+1][1] > 1:
-                        rope[n+1][1] +=1
-                        rope[n+1][0] = rope[n][0]
-                    if rope[n][1] - rope[n+1][1] < -1:
-                        rope[n+1][1] -=1
-                        rope[n+1][0] = rope[n][0]
-
+                  
             nex = str(rope[9][0])
             ney = str(rope[9][1])
             nep = nex+", "+ ney
-            if nep not in npl:
-                npl.append(nep) 
+            if nep not in positions:
+                positions.append(nep) 
        
-    print(len(npl))
+    print(len(positions))
